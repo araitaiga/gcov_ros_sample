@@ -8,8 +8,6 @@ TEST(myabsTest, branchCoverageCase)
   EXPECT_EQ(1, myabs(1));
 }
 
-TEST(myabsTest, simpleCase) { EXPECT_EQ(1, myabs(1)); }
-
 int main(int argc, char ** argv)
 {
   ::testing::InitGoogleTest(&argc, argv);

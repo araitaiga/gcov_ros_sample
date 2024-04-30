@@ -1,16 +1,17 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(gcov_ros_sample)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall")
 
-# # gcov有効化方法1
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
-
-# # gcov有効化方法2
+# ######### gcov有効化方法
+# # 方法1: set()で指定
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
 
-# # gcov有効化方法3
+# # 以下のようにセットしても良い
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+
+# # 方法2: configure時にoptionで指定
 # catkin build -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} --coverage" -DCMAKE_EXE_LINKER_FLAGS="${CMAKE_EXE_LINKER_FLAGS} --coverage"
+# #########
 message(STATUS "CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
 find_package(catkin REQUIRED COMPONENTS
